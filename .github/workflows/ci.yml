@@ -1,0 +1,38 @@
+name: Simple CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  APP_NAME: My CI App
+  NODE_ENV: production
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Show Environment Values
+        run: |
+          echo "App Name = $APP_NAME"
+          echo "Environment = $NODE_ENV"
