@@ -1,5 +1,8 @@
-const sum = require("./sum");
+const sum = require('./sum');
 
-test("adds 1 + 2 = 3", () => {
-  expect(sum(1, 2)).toBe(3);
-});
+if (sum(1, 2) !== 3) {
+  console.error('❌ Test failed: 1 + 2 should equal 3');
+  process.exit(1);
+}
+
+console.log('✅ Test passed');
