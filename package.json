@@ -1,8 +1,7 @@
 {
-  "name": "ci-sample",
+  "name": "my-ci-project",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest",
-    "build": "echo Build completed!"
+    "test": "node sum.test.js"
   }
 }
